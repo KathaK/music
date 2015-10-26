@@ -1,10 +1,16 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, abort, url_for
 app = Flask(__name__)
 
 @app.route("/")
 def start():
     return  render_template('header.html')
 
+@app.route("/test/img")
+def pic():
+    start = '<img src="'
+    url = url_for('static', filename='logo.jpg')
+    end = '">'
+    return start+url+end, 200
 
 @app.route("/account/", methods=['POST','GET'])
 def account():
@@ -23,6 +29,11 @@ def account():
         </body></html>'''
 
     return page
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return "Couldn't find the requested page.", 404
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
