@@ -9,6 +9,10 @@ def start():
 def genre():
     return render_template('genre.html')
 
+@app.route("/artist/")
+def artist():
+    return render_template('artist.html')
+
 @app.route("/test/img")
 def pic():
     start = '<img src="'
@@ -16,17 +20,18 @@ def pic():
     end = '">'
     return start+url+end, 200
 
-@app.route("/account/", methods=['POST','GET'])
+@app.route("/search/", methods=['POST','GET'])
 def account():
     if request.method == 'POST':
         print request.form
         name = request.form['name']
-        return "M@N says HELLO to %s" %name
+        return "Results for your search: %s" %name
     else:
         page = '''
         <html><body>
             <form action="" method="post" name="form">
-                <label for="name">Name: </label>
+                <h1>Search in M@N:</h1>
+                <label for="name">Criteria: </label>
                 <input type="text" name="name" id="name"/>
                 <input type="submit" name="submit" id="submit"/>
             </form>
