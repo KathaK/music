@@ -5,6 +5,10 @@ app = Flask(__name__)
 def start():
     return  render_template('navbar.html')
 
+@app.route("/genre/")
+def genre():
+    return render_template('genre.html')
+
 @app.route("/test/img")
 def pic():
     start = '<img src="'
