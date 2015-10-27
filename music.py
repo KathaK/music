@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def start():
-    return  render_template('header.html')
+    return  render_template('navbar.html')
 
 @app.route("/test/img")
 def pic():
