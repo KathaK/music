@@ -33,7 +33,7 @@ def account():
     if request.method == 'POST':
         print request.form
         name = request.form['name']
-        return "Results for your search: %s" %name
+        return "You are searching for: %s" %name
     else:
         page = '''
         <html><body>
