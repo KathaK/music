@@ -21,7 +21,7 @@ def artist():
 def show_songs_by_artist(name):
     return "These are the songs by " + name + ":"
 
-@app.route("/logo/")
+@app.route('/logo/')
 def logo():
     start = '<img src="'
     url = url_for('static', filename='logo.jpg')
